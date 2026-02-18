@@ -82,7 +82,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .mobile-menu.open a:nth-child(6){transition-delay:.28s}
 .mobile-menu a:hover{color:var(--blush)}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.nav-inner{padding:0 24px}}
-@media(max-width:768px){.hero{min-height:auto;height:66vh;padding:60px 0 30px}.hero-logo{width:80px;height:80px;margin-bottom:14px}.hero-tagline{margin-bottom:20px;letter-spacing:.2em}.hero-cta-group{gap:10px}.btn-primary,.btn-outline{padding:11px 24px;font-size:12px}.hero-social{margin-top:16px;gap:14px}.hero-social a .social-icon{width:36px;height:36px}.hero-social a svg{width:15px;height:15px}.hero-social a .social-label{font-size:9px}.hero-social-label{margin-top:10px;font-size:9px}}
+@media(max-width:768px){.hero{min-height:auto;height:66vh;padding:60px 0 30px}.hero-logo{width:80px;height:80px;margin-bottom:14px}.hero-tagline{margin-bottom:20px;letter-spacing:.2em}.hero-cta-group{gap:10px}.btn-primary,.btn-outline{padding:11px 24px;font-size:12px}.hero-social{margin-top:16px;gap:24px}.hero-social a .social-icon{width:36px;height:36px}.hero-social a svg{width:15px;height:15px}.hero-social a .social-label{font-size:9px}.hero-social-label{margin-top:10px;font-size:9px}}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#110A1A}
@@ -122,17 +122,17 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .btn-primary:hover{background:var(--lilac);transform:translateY(-2px);box-shadow:0 8px 24px rgba(142,68,173,.35)}
 .btn-outline{font-family:var(--font-sub);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:15px 36px;border:1px solid rgba(212,114,140,.4);background:transparent;color:var(--white);text-decoration:none;border-radius:4px;transition:border-color .3s,color .3s,background .3s,transform .2s;cursor:pointer}
 .btn-outline:hover{border-color:var(--rose);color:var(--white);background:var(--rose);transform:translateY(-2px)}
-.hero-social{display:flex;gap:20px;justify-content:center;margin-top:32px;opacity:0;transform:translateY(16px);animation:hReveal .7s 1.9s var(--ease) forwards}
-.hero-social a{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;transition:transform .3s;animation:socialPulse 2.5s ease-in-out infinite}
-.hero-social a .social-icon{width:44px;height:44px;border-radius:50%;border:1px solid rgba(197,165,90,.3);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s}
+.hero-social{display:flex;gap:32px;justify-content:center;margin-top:32px;opacity:0;transform:translateY(16px);animation:hReveal .7s 1.9s var(--ease) forwards}
+.hero-social a{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;transition:transform .3s}
+.hero-social a .social-icon{width:44px;height:44px;border-radius:50%;border:1px solid rgba(197,165,90,.3);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s,box-shadow .3s;animation:socialPulse 2.5s ease-in-out infinite}
+.hero-social a:nth-child(1) .social-icon{animation-delay:0s}
+.hero-social a:nth-child(2) .social-icon{animation-delay:.4s}
+.hero-social a:nth-child(3) .social-icon{animation-delay:.8s}
+.hero-social a:nth-child(4) .social-icon{animation-delay:1.2s}
 .hero-social a .social-label{font-family:var(--font-sub);font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.08em;text-transform:uppercase}
-.hero-social a:nth-child(1){animation-delay:0s}
-.hero-social a:nth-child(2){animation-delay:.4s}
-.hero-social a:nth-child(3){animation-delay:.8s}
-.hero-social a:nth-child(4){animation-delay:1.2s}
 @keyframes socialPulse{0%,100%{box-shadow:0 0 0 0 rgba(197,165,90,0)}50%{box-shadow:0 0 12px 3px rgba(197,165,90,.25)}}
-.hero-social a:hover{transform:translateY(-3px);animation:none}
-.hero-social a:hover .social-icon{border-color:var(--gold-light);background:rgba(197,165,90,.12);box-shadow:0 0 16px 4px rgba(197,165,90,.3)}
+.hero-social a:hover{transform:translateY(-3px)}
+.hero-social a:hover .social-icon{border-color:var(--gold-light);background:rgba(197,165,90,.12);box-shadow:0 0 16px 4px rgba(197,165,90,.3);animation:none}
 .hero-social a:hover .social-label{color:var(--gold-light)}
 .hero-social a svg{width:18px;height:18px;fill:rgba(255,255,255,.9);transition:fill .3s}
 .hero-social a:hover svg{fill:var(--gold-light)}
