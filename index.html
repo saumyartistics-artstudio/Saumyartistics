@@ -132,10 +132,6 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .hero-social a svg{width:18px;height:18px;fill:rgba(255,255,255,.6);transition:fill .3s}
 .hero-social a:hover svg{fill:var(--gold-light)}
 .hero-social-label{font-family:var(--font-sub);font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase;margin-top:20px;opacity:0;transform:translateY(12px);animation:hReveal .6s 2s var(--ease) forwards}
-.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:3;opacity:0;animation:hReveal .7s 2.2s var(--ease) forwards}
-.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold-light),transparent);margin:0 auto;animation:sPulse 2.5s ease-in-out infinite}
-@keyframes sPulse{0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top}50%{opacity:.8;transform:scaleY(1)}}
-.hero-scroll-text{font-family:var(--font-sub);font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase;margin-top:10px}
 
 /* SECTIONS */
 .section{padding:110px 40px;position:relative;overflow:hidden}
@@ -167,28 +163,28 @@ img{image-rendering:auto}
 @media(max-width:700px){.services-grid{grid-template-columns:1fr 1fr;gap:16px}.service-card{padding:28px 18px}}
 @media(max-width:480px){.services-grid{grid-template-columns:1fr}}
 
-/* GALLERY */
-.gallery{background:linear-gradient(170deg,#1A1226 0%,#221432 50%,#1A1226 100%)}
+/* GALLERY — Netflix-style horizontal rows */
+.gallery{background:linear-gradient(170deg,#1A1226 0%,#221432 50%,#1A1226 100%);padding-bottom:60px}
 .gallery .section-label{color:var(--gold)}
-.gallery .section-title{color:var(--white)}
-.gallery-header{max-width:1400px;margin:0 auto 40px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px}
-.gallery-filters{display:flex;gap:8px;flex-wrap:wrap}
-.filter-btn{font-family:var(--font-sub);font-size:14px;font-weight:500;letter-spacing:.06em;padding:9px 22px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.75);cursor:pointer;border-radius:20px;transition:all .3s}
-.filter-btn:hover{border-color:var(--lavender);color:var(--white)}
-.filter-btn.active{background:var(--purple);color:var(--white);border-color:var(--purple)}
-.filter-btn .filter-count{font-size:12px;opacity:.7;margin-left:4px}
-.gallery-grid{max-width:1400px;margin:0 auto;columns:4;column-gap:14px}
-.gallery-item{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;background:rgba(255,255,255,.05);cursor:pointer;border-radius:6px;transition:transform .4s var(--ease),opacity .4s var(--ease);will-change:transform;animation:galleryIn .5s var(--ease) both}
-.gallery-item:hover{transform:translate3d(0,-4px,0)}
-.gallery-item img{width:100%;display:block;transition:transform .5s var(--ease)}
-.gallery-item:hover img{transform:scale(1.04)}
-.gallery-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(10,10,10,.9) 100%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:20px}
+.gallery-header-center{text-align:center;max-width:1400px;margin:0 auto 48px;padding:0 40px}
+.gallery-row{margin-bottom:36px;position:relative}
+.gallery-row-title{font-family:var(--font-display);font-size:clamp(18px,2.5vw,24px);color:var(--white);letter-spacing:.08em;padding:0 40px;margin-bottom:14px}
+.gallery-scroll{display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;padding:0 40px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gallery-scroll::-webkit-scrollbar{display:none}
+.gallery-item{flex:0 0 260px;position:relative;overflow:hidden;background:rgba(255,255,255,.05);cursor:pointer;border-radius:6px;transition:transform .35s var(--ease),box-shadow .35s}
+.gallery-item:hover{transform:scale(1.05);z-index:2;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.gallery-item img{width:100%;height:320px;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.9) 100%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:16px}
 .gallery-item:hover .gallery-overlay{opacity:1}
-.gallery-overlay h4{font-family:var(--font-display);font-size:16px;color:var(--white);margin-bottom:3px}
-.gallery-overlay span{font-family:var(--font-sub);font-size:13px;color:var(--gold-light);letter-spacing:.08em}
-@keyframes galleryIn{from{opacity:0;transform:scale(.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
-@media(max-width:1100px){.gallery-grid{columns:3}}
-@media(max-width:768px){.gallery-grid{columns:2;column-gap:10px}.gallery-item{margin-bottom:10px}}
+.gallery-overlay h4{font-family:var(--font-display);font-size:15px;color:var(--white);margin-bottom:2px}
+.gallery-overlay span{font-family:var(--font-sub);font-size:12px;color:var(--gold-light);letter-spacing:.08em}
+/* Scroll arrows */
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.15);color:var(--white);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .3s,border-color .3s;backdrop-filter:blur(4px)}
+.gallery-arrow:hover{background:rgba(142,68,173,.6);border-color:var(--lavender)}
+.gallery-arrow-left{left:8px}
+.gallery-arrow-right{right:8px}
+@media(max-width:768px){.gallery-item{flex:0 0 200px}.gallery-item img{height:250px}.gallery-scroll{gap:10px;padding:0 20px 12px}.gallery-row-title{padding:0 20px}.gallery-header-center{padding:0 20px}}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(10,10,10,.96);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;padding:20px}
@@ -363,8 +359,8 @@ img{image-rendering:auto}
     </span>
   </a>
   <ul class="nav-links">
-    <li><a href="#gallery" class="nav-link">Gallery</a></li>
     <li><a href="#wedding" class="nav-link">Live Painting</a></li>
+    <li><a href="#gallery" class="nav-link">Gallery</a></li>
     <li><a href="#services" class="nav-link">Services</a></li>
     <li><a href="#about" class="nav-link">About</a></li>
     <li><a href="#testimonials" class="nav-link">Reviews</a></li>
@@ -375,8 +371,8 @@ img{image-rendering:auto}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#gallery" onclick="closeMobile()">Gallery</a>
   <a href="#wedding" onclick="closeMobile()">Live Painting</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#testimonials" onclick="closeMobile()">Reviews</a>
@@ -410,40 +406,7 @@ img{image-rendering:auto}
     </div>
     <p class="hero-social-label">Get in Touch</p>
   </div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div><div class="hero-scroll-text">Scroll</div></div>
 </section>
-
-<!-- GALLERY -->
-<section class="section gallery" id="gallery">
-  <div class="gallery-header"><div>
-    <p class="section-label reveal">Portfolio</p>
-    <h2 class="section-title reveal reveal-d1">Selected Works</h2>
-    <div class="section-divider reveal reveal-d2"></div>
-  </div>
-  <div class="gallery-filters reveal reveal-d2">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="pencil">Pencil Portraits</button>
-    <button class="filter-btn" data-filter="watercolor">Watercolor</button>
-    <button class="filter-btn" data-filter="oil">Oil &amp; Acrylic</button>
-    <button class="filter-btn" data-filter="miniature">Miniatures</button>
-    <button class="filter-btn" data-filter="pet">Pet Portraits</button>
-  </div></div>
-  <div class="gallery-grid" id="galleryGrid"></div>
-</section>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">&times;</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
-  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
-  <div class="lightbox-img-wrap">
-    <img id="lightboxImg" src="" alt="">
-    <div class="lightbox-caption">
-      <h4 id="lightboxTitle"></h4>
-      <span id="lightboxCategory"></span>
-    </div>
-  </div>
-</div>
 
 <!-- LIVE WEDDING PAINTING -->
 <section class="section wedding" id="wedding">
@@ -563,6 +526,30 @@ img{image-rendering:auto}
     <div class="wedding-gallery-item"><img src="images/brochure_14.jpg" alt="Wedding painting" loading="lazy" decoding="async"></div>
   </div>
 </section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="gallery">
+  <div class="gallery-header-center">
+    <p class="section-label reveal">Portfolio</p>
+    <h2 class="section-title section-title-light reveal reveal-d1">Selected Works</h2>
+    <div class="section-divider reveal reveal-d2" style="margin:0 auto 28px"></div>
+  </div>
+  <div id="galleryRows"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption">
+      <h4 id="lightboxTitle"></h4>
+      <span id="lightboxCategory"></span>
+    </div>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section class="section services" id="services">
@@ -842,43 +829,61 @@ const galleryData=[
   {title:'Pet Portrait Study',category:'pet',label:'Pet Portrait',img:'artwork_27.jpg'},
 ];
 
-let currentFilter='all',currentLightboxIdx=0,filteredData=[];
+let currentLightboxIdx=0,filteredData=galleryData;
 
-/* Add count badges to filter buttons */
-function addFilterCounts(){
-  const counts={all:galleryData.length};
-  galleryData.forEach(d=>{counts[d.category]=(counts[d.category]||0)+1});
-  document.querySelectorAll('[data-filter]').forEach(btn=>{
-    const f=btn.dataset.filter;
-    const c=counts[f]||0;
-    btn.innerHTML=btn.textContent.replace(/\s*\(\d+\)/,'')+' <span class="filter-count">('+c+')</span>';
+/* Netflix-style rows grouped by category */
+const categories=[
+  {key:'pencil',title:'Pencil Portraits'},
+  {key:'watercolor',title:'Watercolor'},
+  {key:'oil',title:'Oil & Acrylic'},
+  {key:'miniature',title:'Miniatures'},
+  {key:'pet',title:'Pet Portraits'}
+];
+
+function renderGalleryRows(){
+  const container=document.getElementById('galleryRows');
+  container.innerHTML=categories.map(cat=>{
+    const items=galleryData.filter(d=>d.category===cat.key);
+    if(!items.length) return '';
+    return '<div class="gallery-row reveal">'+
+      '<h3 class="gallery-row-title">'+cat.title+'</h3>'+
+      '<div class="gallery-row-wrap" style="position:relative">'+
+      '<button class="gallery-arrow gallery-arrow-left" data-dir="-1">&#8249;</button>'+
+      '<div class="gallery-scroll">'+
+      items.map(item=>{
+        const globalIdx=galleryData.indexOf(item);
+        return '<div class="gallery-item" data-idx="'+globalIdx+'">'+
+          '<img src="images/'+item.img+'" alt="'+item.title+'" loading="lazy" decoding="async">'+
+          '<div class="gallery-overlay"><div><h4>'+item.title+'</h4><span>'+item.label+'</span></div></div></div>';
+      }).join('')+
+      '</div>'+
+      '<button class="gallery-arrow gallery-arrow-right" data-dir="1">&#8250;</button>'+
+      '</div></div>';
+  }).join('');
+
+  /* Scroll arrows */
+  container.querySelectorAll('.gallery-row-wrap').forEach(wrap=>{
+    const scroll=wrap.querySelector('.gallery-scroll');
+    wrap.querySelectorAll('.gallery-arrow').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const dir=parseInt(btn.dataset.dir);
+        scroll.scrollBy({left:dir*300,behavior:'smooth'});
+      });
+    });
   });
+
+  /* Lightbox click */
+  container.querySelectorAll('.gallery-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+      filteredData=galleryData;
+      openLightbox(parseInt(item.dataset.idx));
+    });
+  });
+
+  /* Re-observe reveals */
+  container.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 }
-
-function renderGallery(filter){
-  filter=filter||'all';
-  currentFilter=filter;
-  const grid=document.getElementById('galleryGrid');
-  filteredData=filter==='all'?galleryData:galleryData.filter(d=>d.category===filter);
-  grid.innerHTML=filteredData.map((item,i)=>
-    '<div class="gallery-item" data-idx="'+i+'" style="animation-delay:'+( i * 40 )+'ms">'+
-    '<img src="images/'+item.img+'" alt="'+item.title+'" loading="lazy" decoding="async">'+
-    '<div class="gallery-overlay"><div><h4>'+item.title+'</h4><span>'+item.label+'</span></div></div></div>'
-  ).join('');
-  grid.querySelectorAll('.gallery-item').forEach(item=>{
-    item.addEventListener('click',()=>openLightbox(parseInt(item.dataset.idx)));
-  });
-}
-renderGallery();
-addFilterCounts();
-
-document.querySelectorAll('[data-filter]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    renderGallery(btn.dataset.filter);
-  });
-});
+renderGalleryRows();
 
 /* Lightbox */
 function openLightbox(idx){
