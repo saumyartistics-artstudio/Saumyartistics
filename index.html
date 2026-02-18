@@ -212,29 +212,30 @@ img{image-rendering:auto}
 .wedding-text-content .section-title{color:var(--dark)}
 .wedding-text-content .section-desc{color:var(--gray)}
 
-/* How It Works */
-.how-it-works{max-width:1000px;margin:64px auto 0;text-align:center}
-.how-it-works h3{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);color:var(--dark);margin-bottom:40px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-.step{position:relative;text-align:center}
-.step-number{font-family:var(--font-display);font-size:36px;color:var(--gold);opacity:.5;margin-bottom:12px}
-.step h4{font-family:var(--font-sub);font-size:16px;font-weight:600;color:var(--dark);letter-spacing:.06em;margin-bottom:8px}
-.step p{font-family:var(--font-sub);font-size:16px;color:var(--gray);line-height:1.65;font-weight:400}
-@media(max-width:700px){.steps{grid-template-columns:1fr 1fr;gap:24px}}
-@media(max-width:480px){.steps{grid-template-columns:1fr}}
+/* How It Works — Carousel */
+.how-it-works{margin:48px 0 0;position:relative}
+.how-it-works h3{font-family:var(--font-display);font-size:clamp(18px,2.5vw,24px);color:var(--dark);padding:0 40px;margin-bottom:14px}
+.steps{display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;padding:0 40px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.steps::-webkit-scrollbar{display:none}
+.step{flex:0 0 220px;text-align:center;padding:24px 20px;border:1px solid var(--light);border-radius:8px;background:var(--off-white);transition:transform .3s var(--ease),box-shadow .3s}
+.step:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.step-number{font-family:var(--font-display);font-size:28px;color:var(--gold);opacity:.6;margin-bottom:8px}
+.step h4{font-family:var(--font-sub);font-size:15px;font-weight:600;color:var(--dark);letter-spacing:.06em;margin-bottom:6px}
+.step p{font-family:var(--font-sub);font-size:14px;color:var(--gray);line-height:1.6;font-weight:400}
+@media(max-width:768px){.step{flex:0 0 180px;padding:18px 14px}.steps{padding:0 20px 12px}.how-it-works h3{padding:0 20px}}
 
-/* Packages */
-.packages-section{max-width:1000px;margin:56px auto 0}
-.packages-section h3{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);color:var(--dark);text-align:center;margin-bottom:32px}
-.packages{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.package{padding:24px;border:1px solid var(--light);border-radius:8px;text-align:center;transition:border-color .3s,background .3s,box-shadow .3s}
-.package:hover{border-color:var(--purple);background:var(--off-white);box-shadow:0 8px 24px rgba(142,68,173,.08)}
-.package-name{font-family:var(--font-sub);font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--purple);margin-bottom:6px;font-weight:600}
-.package-size{font-family:var(--font-body);font-size:14px;color:var(--gray);font-weight:400}
-.package-price{font-family:var(--font-display);font-size:24px;color:var(--dark);margin-top:8px}
-.package-from{font-family:var(--font-sub);font-size:13px;color:var(--gray);letter-spacing:.05em;display:block}
-@media(max-width:768px){.packages{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.packages{grid-template-columns:1fr}}
+/* Packages — Carousel */
+.packages-section{margin:48px 0 0;position:relative}
+.packages-section h3{font-family:var(--font-display);font-size:clamp(18px,2.5vw,24px);color:var(--dark);padding:0 40px;margin-bottom:14px}
+.packages{display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;padding:0 40px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.packages::-webkit-scrollbar{display:none}
+.package{flex:0 0 220px;padding:24px 20px;border:1px solid var(--light);border-radius:8px;text-align:center;transition:transform .3s var(--ease),box-shadow .3s}
+.package:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.06);border-color:var(--lavender)}
+.package-name{font-family:var(--font-sub);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:8px;font-weight:600}
+.package-size{font-family:var(--font-body);font-size:15px;color:var(--dark);font-weight:500;margin-bottom:10px}
+.package-price{font-family:var(--font-sub);font-size:17px;color:var(--gray);margin-top:4px;font-weight:400}
+.package-from{font-family:var(--font-sub);font-size:12px;color:var(--gray);letter-spacing:.05em;display:block;margin-bottom:2px}
+@media(max-width:768px){.package{flex:0 0 180px;padding:18px 14px}.packages{padding:0 20px 12px}.packages-section h3{padding:0 20px}}
 
 /* What to Expect */
 .expect-section{max-width:1000px;margin:56px auto 0}
