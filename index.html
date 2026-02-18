@@ -682,12 +682,7 @@ img{image-rendering:auto}
       <div class="section-divider reveal reveal-d2"></div>
       <p class="section-desc reveal reveal-d2">Whether it's a live painting, portrait, or custom artwork &mdash; fill out the form below and Saumya will get back to you within 24 hours.</p>
     </div>
-    <form class="booking-form reveal reveal-d3" id="bookingForm" action="https://formsubmit.co/saumyartistics@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Booking Enquiry - Saumyartistics">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="text" name="_honey" style="display:none">
-      <input type="hidden" name="_next" value="https://wa.me/919794818188?text=Hi%20Saumya%2C%20I%20just%20submitted%20a%20booking%20enquiry%20on%20your%20website!">
+    <form class="booking-form reveal reveal-d3" id="bookingForm">
 
       <div class="form-group full-width">
         <select name="service_type" class="form-select" id="serviceSelect" required>
@@ -946,8 +941,9 @@ document.getElementById('packageSelect').addEventListener('change',function(){
   this.classList.add('has-value');
 });
 
-/* Booking form — build WhatsApp redirect with form data before submit */
-document.getElementById('bookingForm').addEventListener('submit',function(){
+/* Booking form — send email via FormSubmit + redirect to WhatsApp */
+document.getElementById('bookingForm').addEventListener('submit',function(e){
+  e.preventDefault();
   const f=this;
   const service=f.service_type.value;
   const name=f.full_name.value.trim();
@@ -957,6 +953,27 @@ document.getElementById('bookingForm').addEventListener('submit',function(){
   const venue=f.venue.value.trim();
   const pkg=f.package.value;
   const msg=f.message.value.trim();
+
+  /* Send email via FormSubmit.co */
+  const formData=new FormData();
+  formData.append('service_type',service);
+  formData.append('full_name',name);
+  formData.append('phone',phone);
+  if(email) formData.append('email',email);
+  if(date) formData.append('event_date',date);
+  if(venue) formData.append('venue',venue);
+  if(pkg) formData.append('package',pkg);
+  if(msg) formData.append('message',msg);
+  formData.append('_subject','New Booking Enquiry - Saumyartistics');
+  formData.append('_captcha','false');
+  formData.append('_template','table');
+  fetch('https://formsubmit.co/ajax/saumyartistics@gmail.com',{
+    method:'POST',
+    headers:{'Accept':'application/json'},
+    body:formData
+  });
+
+  /* Build WhatsApp message with form data */
   let text='Hi Saumya, I just submitted a booking enquiry on your website. Here are my details:\n\n';
   text+='Service: '+service+'\n';
   text+='Name: '+name+'\n';
@@ -967,7 +984,9 @@ document.getElementById('bookingForm').addEventListener('submit',function(){
   if(pkg) text+='Package: '+pkg+'\n';
   if(msg) text+='Message: '+msg+'\n';
   text+='\nLooking forward to hearing from you!';
-  f.querySelector('input[name="_next"]').value='https://wa.me/919794818188?text='+encodeURIComponent(text);
+
+  /* Redirect to WhatsApp */
+  window.location.href='https://wa.me/919794818188?text='+encodeURIComponent(text);
 });
 
 /* Smooth scroll */
