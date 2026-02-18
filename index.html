@@ -687,7 +687,7 @@ img{image-rendering:auto}
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="text" name="_honey" style="display:none">
-      <input type="hidden" name="_next" value="https://saumyartistics-artstudio.github.io/Saumyartistics/#booking">
+      <input type="hidden" name="_next" value="https://wa.me/919794818188?text=Hi%20Saumya%2C%20I%20just%20submitted%20a%20booking%20enquiry%20on%20your%20website!">
 
       <div class="form-group full-width">
         <select name="service_type" class="form-select" id="serviceSelect" required>
@@ -710,8 +710,8 @@ img{image-rendering:auto}
         <label class="form-label">Phone Number *</label>
       </div>
       <div class="form-group full-width">
-        <input type="email" name="email" class="form-input" placeholder=" " required>
-        <label class="form-label">Email ID *</label>
+        <input type="email" name="email" class="form-input" placeholder=" ">
+        <label class="form-label">Email ID</label>
       </div>
 
       <div class="form-group">
@@ -946,7 +946,29 @@ document.getElementById('packageSelect').addEventListener('change',function(){
   this.classList.add('has-value');
 });
 
-/* Booking form — email via FormSubmit.co to saumyartistics@gmail.com */
+/* Booking form — build WhatsApp redirect with form data before submit */
+document.getElementById('bookingForm').addEventListener('submit',function(){
+  const f=this;
+  const service=f.service_type.value;
+  const name=f.full_name.value.trim();
+  const phone=f.phone.value.trim();
+  const email=f.email.value.trim();
+  const date=f.event_date.value;
+  const venue=f.venue.value.trim();
+  const pkg=f.package.value;
+  const msg=f.message.value.trim();
+  let text='Hi Saumya, I just submitted a booking enquiry on your website. Here are my details:\n\n';
+  text+='Service: '+service+'\n';
+  text+='Name: '+name+'\n';
+  text+='Phone: '+phone+'\n';
+  if(email) text+='Email: '+email+'\n';
+  if(date) text+='Event Date: '+date+'\n';
+  if(venue) text+='Venue: '+venue+'\n';
+  if(pkg) text+='Package: '+pkg+'\n';
+  if(msg) text+='Message: '+msg+'\n';
+  text+='\nLooking forward to hearing from you!';
+  f.querySelector('input[name="_next"]').value='https://wa.me/919794818188?text='+encodeURIComponent(text);
+});
 
 /* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
