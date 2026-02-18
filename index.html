@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saumyartistics | Fine Art & Live Wedding Painting by Saumya Asthana</title>
+<meta name="description" content="Saumyartistics by Saumya Asthana - Hyper-realistic portraits, watercolor paintings, live wedding painting, and commissioned fine art.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --deep:#1E0A3C;--royal:#5B2D8E;--purple:#7B4FBF;--purple-soft:#9B7AC7;
+  --lavender:#B794D6;--lav-pale:#E4D5F0;--lav-mist:#F3EDF8;
+  --black:#0A0A0A;--near-black:#0E0E0E;--charcoal:#1A1A1A;--dark:#2C2C2C;
+  --gray:#777;--silver:#AAA;--pearl:#D0D0D0;--light:#E8E8E8;
+  --off-white:#F7F5FA;--white:#FFFFFF;
+  --font-brand:'Great Vibes',cursive;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-sub:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Lato','Helvetica Neue',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;
+  cursor:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><path d='M23 2L10 15l-1 7 7-1L23 2z' fill='%235B2D8E' fill-opacity='.85'/><path d='M9 22c-2 2-4 3-6 4 0-2 1-4 3-5l3 1z' fill='%23B794D6'/></svg>") 3 25, auto}
+a,button,input,textarea,select,[type="submit"]{cursor:pointer}
+body{font-family:var(--font-body);color:var(--dark);background:var(--white);overflow-x:hidden;line-height:1.6}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;background:var(--near-black);z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;transition:opacity .6s ease,visibility .6s}
+.preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-logo{width:80px;height:80px;border-radius:50%;object-fit:cover;opacity:0;animation:pUp .8s .2s var(--ease) forwards}
+.preloader-brand{font-family:var(--font-brand);font-size:clamp(28px,5vw,42px);color:var(--lavender);letter-spacing:.02em;opacity:0;animation:pUp .8s .4s var(--ease) forwards}
+.preloader-line{width:80px;height:1px;background:var(--royal);transform-origin:left;transform:scaleX(0);animation:pLine 1s .5s var(--ease) forwards}
+@keyframes pUp{to{opacity:1;transform:translateY(0)}}
+@keyframes pLine{to{transform:scaleX(1)}}
+
+/* NAV */
+.navbar{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;transition:background .4s,box-shadow .4s;display:flex;align-items:center}
+.navbar.scrolled{background:rgba(14,14,14,.96);box-shadow:0 1px 0 rgba(255,255,255,.04)}
+.nav-inner{max-width:1400px;margin:0 auto;width:100%;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;z-index:1001}
+.nav-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(183,148,214,.25);transition:border-color .3s}
+.nav-brand:hover .nav-logo{border-color:var(--lavender)}
+.nav-brand-text{font-family:var(--font-brand);font-size:26px;color:var(--white);transition:color .3s}
+.navbar.scrolled .nav-brand-text{color:var(--white)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-link{font-family:var(--font-sub);font-size:15px;font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;letter-spacing:.06em;position:relative;padding:4px 0;transition:color .3s}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--lavender);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav-link:hover{color:var(--white)}
+.nav-link:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{font-family:var(--font-sub);font-size:13px;font-weight:600;color:var(--white);background:var(--royal);padding:10px 28px;border:none;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .3s,transform .2s}
+.nav-cta:hover{background:var(--purple);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:8px;z-index:1001}
+.hamburger span{display:block;width:28px;height:1.5px;background:var(--white);transition:transform .4s var(--ease),opacity .3s}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:var(--near-black);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--font-display);font-size:clamp(22px,4.5vw,32px);color:var(--white);text-decoration:none;letter-spacing:.05em;opacity:0;transform:translateY(16px);transition:color .3s,opacity .4s var(--ease),transform .4s var(--ease)}
+.mobile-menu.open a{opacity:1;transform:translateY(0)}
+.mobile-menu.open a:nth-child(1){transition-delay:.08s}.mobile-menu.open a:nth-child(2){transition-delay:.12s}.mobile-menu.open a:nth-child(3){transition-delay:.16s}.mobile-menu.open a:nth-child(4){transition-delay:.2s}.mobile-menu.open a:nth-child(5){transition-delay:.24s}.mobile-menu.open a:nth-child(6){transition-delay:.28s}.mobile-menu.open a:nth-child(7){transition-delay:.32s}
+.mobile-menu a:hover{color:var(--lavender)}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.nav-inner{padding:0 24px}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--near-black)}
+.hero-bg{position:absolute;inset:0;background:url('images/artwork_15.jpg') center/cover;opacity:.3}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(30,10,60,.85) 0%,rgba(14,14,14,.5) 50%,rgba(14,14,14,.9) 100%);z-index:1}
+.hero-content{text-align:center;z-index:2;padding:0 24px}
+.hero-logo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:2px solid rgba(183,148,214,.3);margin-bottom:20px;opacity:0;transform:translateY(20px);animation:hReveal .8s 1s var(--ease) forwards;box-shadow:0 0 40px rgba(91,45,142,.2)}
+.hero-overline{font-family:var(--font-sub);font-size:clamp(11px,1.4vw,14px);color:var(--lavender);letter-spacing:.35em;text-transform:uppercase;margin-bottom:16px;opacity:0;transform:translateY(16px);animation:hReveal .7s 1.2s var(--ease) forwards}
+.hero-title{font-family:var(--font-brand);font-size:clamp(52px,11vw,120px);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:16px;opacity:0;transform:translateY(20px);animation:hReveal .8s 1.3s var(--ease) forwards}
+.hero-subtitle{font-family:var(--font-sub);font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.5);font-weight:300;letter-spacing:.08em;max-width:550px;margin:0 auto 36px;opacity:0;transform:translateY(16px);animation:hReveal .7s 1.5s var(--ease) forwards}
+.hero-cta-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(16px);animation:hReveal .7s 1.7s var(--ease) forwards}
+@keyframes hReveal{to{opacity:1;transform:translateY(0)}}
+.btn-primary{font-family:var(--font-sub);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:15px 36px;border:none;background:var(--royal);color:var(--white);text-decoration:none;transition:background .3s,transform .2s,box-shadow .3s}
+.btn-primary:hover{background:var(--purple);transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,45,142,.35)}
+.btn-outline{font-family:var(--font-sub);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:15px 36px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--white);text-decoration:none;transition:border-color .3s,color .3s,transform .2s}
+.btn-outline:hover{border-color:var(--lavender);color:var(--lavender);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;opacity:0;animation:hReveal .7s 2s var(--ease) forwards}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--lavender),transparent);margin:0 auto;animation:sPulse 2.5s ease-in-out infinite}
+@keyframes sPulse{0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top}50%{opacity:.8;transform:scaleY(1)}}
+.hero-scroll-text{font-family:var(--font-sub);font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase;margin-top:10px}
+
+/* SECTIONS */
+.section{padding:110px 40px;position:relative;overflow:hidden}
+@media(max-width:768px){.section{padding:72px 20px}}
+.section-label{font-family:var(--font-sub);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--royal);margin-bottom:14px;font-weight:600}
+.section-title{font-family:var(--font-display);font-size:clamp(30px,4.5vw,52px);font-weight:400;color:var(--charcoal);line-height:1.15;margin-bottom:18px}
+.section-title-light{color:var(--white)}
+.section-divider{width:50px;height:1px;background:var(--lavender);margin-bottom:28px}
+.section-desc{font-family:var(--font-sub);font-size:clamp(15px,1.8vw,19px);color:var(--gray);max-width:540px;line-height:1.7;font-weight:300}
+.section-desc-light{color:rgba(255,255,255,.5)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
+
+/* MARQUEE */
+.marquee-section{background:var(--charcoal);padding:40px 0;overflow:hidden}
+.marquee-track{display:flex;animation:mScroll 35s linear infinite;width:max-content;will-change:transform}
+.marquee-item{flex-shrink:0;padding:0 40px;font-family:var(--font-display);font-size:clamp(20px,3.5vw,40px);color:rgba(183,148,214,.1);white-space:nowrap;font-style:italic}
+.marquee-item .dot{display:inline-block;width:5px;height:5px;background:var(--royal);border-radius:50%;vertical-align:middle;margin:0 20px;opacity:.4}
+@keyframes mScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-portrait{position:relative;overflow:hidden;aspect-ratio:3/4}
+.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:top}
+.about-portrait-frame{position:absolute;inset:14px;border:1px solid var(--lav-pale);z-index:2;pointer-events:none}
+.about-quote{font-family:var(--font-display);font-size:clamp(18px,2.2vw,26px);font-style:italic;color:var(--charcoal);line-height:1.5;margin-bottom:24px;position:relative;padding-left:20px;border-left:2px solid var(--lavender)}
+.about-body{font-family:var(--font-body);font-size:15px;color:var(--gray);line-height:1.85;margin-bottom:32px}
+.about-skills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.skill-tag{font-family:var(--font-sub);font-size:13px;font-weight:500;letter-spacing:.05em;padding:7px 18px;border:1px solid var(--lav-pale);color:var(--dark);background:transparent;transition:background .3s,color .3s,border-color .3s}
+.skill-tag:hover{background:var(--royal);color:var(--white);border-color:var(--royal)}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-top:28px;border-top:1px solid var(--light)}
+.stat-number{font-family:var(--font-display);font-size:34px;font-weight:400;color:var(--royal);line-height:1;margin-bottom:4px}
+.stat-label{font-family:var(--font-sub);font-size:13px;color:var(--silver);letter-spacing:.05em}
+@media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:40px}.about-portrait{max-width:380px;margin:0 auto}}
+
+/* GALLERY */
+.gallery{background:var(--off-white)}
+.gallery-header{max-width:1400px;margin:0 auto 40px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.gallery-filters{display:flex;gap:6px;flex-wrap:wrap}
+.filter-btn{font-family:var(--font-sub);font-size:13px;font-weight:500;letter-spacing:.06em;padding:9px 22px;border:1px solid var(--pearl);background:transparent;color:var(--gray);cursor:pointer;transition:all .3s}
+.filter-btn:hover{border-color:var(--royal);color:var(--royal)}
+.filter-btn.active{background:var(--deep);color:var(--white);border-color:var(--deep)}
+.gallery-grid{max-width:1400px;margin:0 auto;columns:4;column-gap:14px}
+.gallery-item{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;background:var(--light);cursor:pointer;transition:transform .4s var(--ease)}
+.gallery-item:hover{transform:translateY(-3px)}
+.gallery-item img{width:100%;display:block;transition:transform .5s var(--ease)}
+.gallery-item:hover img{transform:scale(1.03)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.85) 100%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:20px}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay h4{font-family:var(--font-display);font-size:16px;color:var(--white);margin-bottom:3px}
+.gallery-overlay span{font-family:var(--font-sub);font-size:12px;color:var(--lavender);letter-spacing:.08em}
+@media(max-width:1100px){.gallery-grid{columns:3}}
+@media(max-width:768px){.gallery-grid{columns:2;column-gap:10px}.gallery-item{margin-bottom:10px}}
+@media(max-width:480px){.gallery-grid{columns:2}}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(10,10,10,.96);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;padding:20px}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox-img-wrap{max-width:88vw;max-height:88vh;position:relative;transform:scale(.94);transition:transform .4s var(--ease)}
+.lightbox.open .lightbox-img-wrap{transform:scale(1)}
+.lightbox-img-wrap img{max-width:100%;max-height:82vh;display:block;box-shadow:0 16px 60px rgba(0,0,0,.5)}
+.lightbox-caption{text-align:center;margin-top:14px}
+.lightbox-caption h4{font-family:var(--font-display);font-size:18px;color:var(--white)}
+.lightbox-caption span{font-family:var(--font-sub);font-size:13px;color:var(--lavender);letter-spacing:.1em}
+.lightbox-close{position:fixed;top:20px;right:28px;background:none;border:none;color:var(--white);font-size:32px;font-family:var(--font-sub);font-weight:300;z-index:10001;line-height:1;padding:8px;transition:color .3s}
+.lightbox-close:hover{color:var(--lavender)}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.6);font-size:44px;z-index:10001;padding:16px;font-family:var(--font-sub);font-weight:300;transition:color .3s}
+.lightbox-nav:hover{color:var(--lavender)}
+.lightbox-prev{left:12px}.lightbox-next{right:12px}
+
+/* WEDDING */
+.wedding{background:var(--near-black)}
+.wedding-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.wedding-visual{position:relative;overflow:hidden}
+.wedding-visual img{width:100%;display:block}
+.wedding-frame{position:absolute;inset:16px;border:1px solid rgba(183,148,214,.2);pointer-events:none}
+.wedding-text-content .section-label{color:var(--lavender)}
+.wedding-features{list-style:none;margin:28px 0;display:flex;flex-direction:column;gap:14px}
+.wedding-features li{font-family:var(--font-sub);font-size:15px;color:rgba(255,255,255,.6);padding-left:24px;position:relative;line-height:1.6}
+.wedding-features li::before{content:'';position:absolute;left:0;top:10px;width:10px;height:1px;background:var(--lavender)}
+.packages{margin:36px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.package{padding:18px;border:1px solid rgba(255,255,255,.08);transition:border-color .3s,background .3s}
+.package:hover{border-color:var(--lavender);background:rgba(183,148,214,.05)}
+.package-name{font-family:var(--font-sub);font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--lavender);margin-bottom:3px}
+.package-size{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.35)}
+.package-price{font-family:var(--font-display);font-size:22px;color:var(--white);margin-top:6px}
+.wedding-cta-group{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:4px}
+.btn-download{font-family:var(--font-sub);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:15px 28px;border:1px solid rgba(183,148,214,.3);background:transparent;color:var(--lavender);text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+.btn-download:hover{border-color:var(--lavender);background:rgba(183,148,214,.08)}
+.btn-download svg{width:14px;height:14px;fill:currentColor}
+@media(max-width:900px){.wedding-inner{grid-template-columns:1fr;gap:40px}.packages{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.packages{grid-template-columns:1fr}}
+.wedding-gallery{max-width:1200px;margin:52px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wedding-gallery-item{overflow:hidden}
+.wedding-gallery-item img{width:100%;height:260px;object-fit:cover;transition:transform .5s var(--ease)}
+.wedding-gallery-item:hover img{transform:scale(1.04)}
+@media(max-width:768px){.wedding-gallery{grid-template-columns:1fr 1fr}.wedding-gallery-item img{height:200px}}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--off-white);padding:100px 40px}
+.testimonials-inner{max-width:1000px;margin:0 auto;text-align:center}
+.testimonial-cards{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:44px;text-align:left}
+.testimonial-card{background:var(--white);padding:36px;border:1px solid var(--light)}
+.testimonial-stars{color:var(--royal);font-size:15px;letter-spacing:3px;margin-bottom:14px}
+.testimonial-text{font-family:var(--font-sub);font-size:15px;color:var(--gray);line-height:1.8;font-style:italic;margin-bottom:18px}
+.testimonial-author{font-family:var(--font-display);font-size:15px;color:var(--charcoal);font-weight:600}
+.testimonial-date{font-family:var(--font-body);font-size:12px;color:var(--silver);margin-top:2px}
+.testimonial-ratings{display:flex;gap:20px;margin-top:10px;flex-wrap:wrap}
+.testimonial-ratings span{font-family:var(--font-body);font-size:11px;color:var(--silver)}
+.testimonial-ratings span em{color:var(--royal);font-style:normal;font-weight:700}
+@media(max-width:768px){.testimonial-cards{grid-template-columns:1fr}.testimonials{padding:72px 20px}}
+
+/* BOOKING */
+.booking{background:var(--white)}
+.booking-inner{max-width:880px;margin:0 auto}
+.booking-intro{text-align:center;margin-bottom:48px}
+.booking-intro .section-divider{margin:0 auto 28px}
+.booking-intro .section-desc{margin:0 auto}
+.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.form-group{position:relative}.form-group.full-width{grid-column:1/-1}
+.form-input,.form-textarea{width:100%;font-family:var(--font-body);font-size:15px;color:var(--charcoal);padding:16px 0 10px;border:none;border-bottom:1px solid var(--pearl);background:transparent;outline:none;transition:border-color .3s}
+.form-input:focus,.form-textarea:focus{border-color:var(--royal)}
+.form-textarea{resize:vertical;min-height:90px}
+.form-label{position:absolute;left:0;top:16px;font-family:var(--font-sub);font-size:14px;color:var(--silver);letter-spacing:.04em;pointer-events:none;transition:all .3s var(--ease)}
+.form-input:focus+.form-label,.form-input:not(:placeholder-shown)+.form-label,.form-textarea:focus+.form-label,.form-textarea:not(:placeholder-shown)+.form-label{top:-4px;font-size:11px;color:var(--royal);letter-spacing:.1em;text-transform:uppercase}
+.form-submit-wrap{grid-column:1/-1;text-align:center;margin-top:12px}
+.form-submit{font-family:var(--font-sub);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 52px;background:var(--royal);color:var(--white);border:none;transition:background .3s,transform .2s,box-shadow .3s}
+.form-submit:hover{background:var(--purple);transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,45,142,.25)}
+.form-note{grid-column:1/-1;font-family:var(--font-sub);font-size:12px;color:var(--silver);text-align:center;font-style:italic}
+@media(max-width:600px){.booking-form{grid-template-columns:1fr}}
+
+/* SHOP */
+.shop{background:var(--off-white)}
+.shop-header{max-width:1400px;margin:0 auto 40px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.shop-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.shop-card{background:var(--white);transition:transform .3s var(--ease),box-shadow .3s;overflow:hidden}
+.shop-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(30,10,60,.08)}
+.shop-card-image{aspect-ratio:4/5;overflow:hidden;position:relative}
+.shop-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.shop-card:hover .shop-card-image img{transform:scale(1.03)}
+.shop-card-badge{position:absolute;top:14px;left:14px;font-family:var(--font-sub);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;background:var(--royal);color:var(--white);z-index:1}
+.shop-card-body{padding:22px}
+.shop-card-category{font-family:var(--font-sub);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--royal);margin-bottom:6px}
+.shop-card-title{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--charcoal);margin-bottom:6px}
+.shop-card-price{font-family:var(--font-sub);font-size:17px;font-weight:500;color:var(--dark);margin-bottom:14px}
+.shop-card-price .price-from{font-size:11px;color:var(--silver);font-weight:400;letter-spacing:.05em}
+.btn-enquire{display:inline-block;font-family:var(--font-sub);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--charcoal);color:var(--charcoal);background:transparent;text-decoration:none;transition:all .3s}
+.btn-enquire:hover{background:var(--deep);color:var(--white);border-color:var(--deep)}
+@media(max-width:600px){.shop-grid{grid-template-columns:1fr}}
+
+/* FOOTER */
+.footer{background:var(--near-black);padding:72px 40px 36px;border-top:1px solid rgba(255,255,255,.04)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px}
+.footer-brand-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid rgba(183,148,214,.2)}
+.footer-brand-text{font-family:var(--font-brand);font-size:32px;color:var(--white)}
+.footer-tagline{font-family:var(--font-sub);font-size:14px;color:rgba(255,255,255,.35);line-height:1.7;max-width:280px}
+.footer-col-title{font-family:var(--font-sub);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--lavender);margin-bottom:18px;font-weight:600}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-family:var(--font-sub);font-size:14px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .3s;letter-spacing:.02em}
+.footer-links a:hover{color:var(--white)}
+.footer-social{display:flex;gap:14px}
+.footer-social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s;text-decoration:none}
+.footer-social a:hover{border-color:var(--royal);background:rgba(91,45,142,.15)}
+.footer-social a svg{fill:rgba(255,255,255,.5);transition:fill .3s}
+.footer-social a:hover svg{fill:var(--lavender)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-copy,.footer-credit{font-family:var(--font-sub);font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.04em}
+.footer-credit a{color:rgba(255,255,255,.2);text-decoration:none;transition:color .3s}
+.footer-credit a:hover{color:rgba(255,255,255,.45)}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr}.footer{padding:52px 24px 28px}}
+</style>
+</head>
+<body>
+<div class="preloader" id="preloader">
+  <img src="images/LOGO.jpg" alt="SA" class="preloader-logo">
+  <div class="preloader-brand">Saumyartistics</div>
+  <div class="preloader-line"></div>
+</div>
+
+<nav class="navbar" id="navbar"><div class="nav-inner">
+  <a href="#hero" class="nav-brand">
+    <img src="images/LOGO.jpg" alt="Saumyartistics" class="nav-logo">
+    <span class="nav-brand-text">Saumyartistics</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+    <li><a href="#wedding" class="nav-link">Live Painting</a></li>
+    <li><a href="#shop" class="nav-link">Shop</a></li>
+    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
+  <a href="#wedding" onclick="closeMobile()">Live Painting</a>
+  <a href="#shop" onclick="closeMobile()">Shop</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+  <a href="#booking" onclick="closeMobile()">Book Now</a>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div><div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="images/LOGO.jpg" alt="Saumyartistics Logo" class="hero-logo">
+    <p class="hero-overline">Fine Art &middot; Portraits &middot; Live Wedding Painting</p>
+    <h1 class="hero-title">Saumyartistics</h1>
+    <p class="hero-subtitle">Because your love story deserves more than photographs &mdash; it deserves a masterpiece</p>
+    <div class="hero-cta-group">
+      <a href="#gallery" class="btn-primary">View Gallery</a>
+      <a href="#booking" class="btn-outline">Book a Painting</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div><div class="hero-scroll-text">Scroll</div></div>
+</section>
+
+<div class="marquee-section"><div class="marquee-track">
+  <span class="marquee-item">Pencil Portraits <span class="dot"></span> Watercolor <span class="dot"></span> Oil Painting <span class="dot"></span> Live Wedding Painting <span class="dot"></span> Miniatures <span class="dot"></span> Pet Portraits <span class="dot"></span> Commissioned Art</span>
+  <span class="marquee-item">Pencil Portraits <span class="dot"></span> Watercolor <span class="dot"></span> Oil Painting <span class="dot"></span> Live Wedding Painting <span class="dot"></span> Miniatures <span class="dot"></span> Pet Portraits <span class="dot"></span> Commissioned Art</span>
+</div></div>
+
+<section class="section about" id="about"><div class="about-inner">
+  <div class="about-portrait reveal"><div class="about-portrait-frame"></div><img src="images/brochure_02.jpg" alt="Saumya Asthana - Artist" loading="lazy"></div>
+  <div class="about-text">
+    <p class="section-label reveal">About the Artist</p>
+    <h2 class="section-title reveal reveal-d1">Saumya Asthana</h2>
+    <div class="section-divider reveal reveal-d2"></div>
+    <blockquote class="about-quote reveal reveal-d2">"I create art that feels personal, elegant, and timeless &mdash; every brushstroke is layered with intention."</blockquote>
+    <p class="about-body reveal reveal-d3">Hi, I'm Saumya, a visual artist with a Master's in Fine Arts and a deep love for storytelling through paint. Based in Whitefield, Bangalore, I have over 7 years of experience in portraiture, specializing in hyper-realistic pencil portraits, expressive watercolor paintings, vibrant oil-on-canvas works, and Live Wedding Paintings that capture the essence of your big day &mdash; while it's happening.<br><br>From intimate pencil portraits that reveal every texture and nuance, to miniature watercolor landscapes, to majestic mythological paintings &mdash; my versatility spans across mediums and subjects. Every piece I create is meant to evoke emotion, not just mimic a photo.</p>
+    <div class="about-skills reveal reveal-d3">
+      <span class="skill-tag">Pencil Portraits</span><span class="skill-tag">Watercolor</span><span class="skill-tag">Oil & Acrylic</span><span class="skill-tag">Live Wedding Painting</span><span class="skill-tag">Miniatures</span><span class="skill-tag">Pet Portraits</span><span class="skill-tag">Fashion Illustration</span>
+    </div>
+    <div class="about-stats reveal reveal-d4">
+      <div><div class="stat-number">200+</div><div class="stat-label">Artworks Created</div></div>
+      <div><div class="stat-number">7+</div><div class="stat-label">Years of Craft</div></div>
+      <div><div class="stat-number">MFA</div><div class="stat-label">Master's in Fine Arts</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section gallery" id="gallery">
+  <div class="gallery-header"><div>
+    <p class="section-label reveal">Portfolio</p>
+    <h2 class="section-title reveal reveal-d1">Selected Works</h2>
+    <div class="section-divider reveal reveal-d2"></div>
+  </div>
+  <div class="gallery-filters reveal reveal-d2">
+    <button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="pencil">Pencil Portraits</button><button class="filter-btn" data-filter="watercolor">Watercolor</button><button class="filter-btn" data-filter="oil">Oil & Acrylic</button><button class="filter-btn" data-filter="miniature">Miniatures</button><button class="filter-btn" data-filter="pet">Pet Portraits</button>
+  </div></div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-img-wrap"><img id="lightboxImg" src="" alt=""><div class="lightbox-caption"><h4 id="lightboxTitle"></h4><span id="lightboxCategory"></span></div></div>
+</div>
+
+<section class="section wedding" id="wedding">
+  <div class="wedding-inner">
+    <div class="wedding-visual reveal"><img src="images/brochure_01.jpg" alt="Live Wedding Painting by Saumya" loading="lazy"><div class="wedding-frame"></div></div>
+    <div class="wedding-text-content">
+      <p class="section-label reveal">Exclusive Service</p>
+      <h2 class="section-title section-title-light reveal reveal-d1">Live Wedding<br>Painting</h2>
+      <div class="section-divider reveal reveal-d2"></div>
+      <p class="section-desc section-desc-light reveal reveal-d2">There are photos and videos &mdash; but a live painting holds something else entirely: the emotion, the atmosphere, the love, all captured with heart and hands in real-time.</p>
+      <ul class="wedding-features reveal reveal-d3">
+        <li>Real-time painting during your ceremony or reception</li>
+        <li>Museum-grade canvas with professional acrylics &amp; satin varnish</li>
+        <li>Arrives 2&ndash;3 hours before event to set up</li>
+        <li>Final touches added post-event in studio</li>
+        <li>Delivered within 2&ndash;3 weeks, ready to frame</li>
+        <li>Available for destination weddings &amp; events</li>
+      </ul>
+      <div class="packages reveal reveal-d3">
+        <div class="package"><div class="package-name">Silver</div><div class="package-size">16 &times; 20 inches</div><div class="package-price">&#8377;30,000</div></div>
+        <div class="package"><div class="package-name">Gold</div><div class="package-size">18 &times; 24 inches</div><div class="package-price">&#8377;35,000</div></div>
+        <div class="package"><div class="package-name">Platinum</div><div class="package-size">20 &times; 24 inches</div><div class="package-price">&#8377;40,000</div></div>
+        <div class="package"><div class="package-name">Grand Royale</div><div class="package-size">24 &times; 30 inches</div><div class="package-price">&#8377;50,000</div></div>
+      </div>
+      <div class="wedding-cta-group reveal reveal-d4">
+        <a href="#booking" class="btn-primary">Book Your Date</a>
+        <a href="downloads/live-painting-brochure.pdf" class="btn-download" download>
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Brochure
+        </a>
+      </div>
+      <p style="font-family:var(--font-sub);font-size:12px;color:rgba(255,255,255,.28);font-style:italic;margin-top:14px" class="reveal reveal-d4">Travel &amp; accommodation charges applicable for events outside Bangalore</p>
+    </div>
+  </div>
+  <div class="wedding-gallery reveal">
+    <div class="wedding-gallery-item"><img src="images/brochure_08.jpg" alt="Wedding painting moment" loading="lazy"></div>
+    <div class="wedding-gallery-item"><img src="images/brochure_09.jpg" alt="Wedding painting moment" loading="lazy"></div>
+    <div class="wedding-gallery-item"><img src="images/brochure_10.jpg" alt="Wedding painting moment" loading="lazy"></div>
+    <div class="wedding-gallery-item"><img src="images/brochure_11.jpg" alt="Wedding painting moment" loading="lazy"></div>
+    <div class="wedding-gallery-item"><img src="images/brochure_12.jpg" alt="Wedding painting moment" loading="lazy"></div>
+    <div class="wedding-gallery-item"><img src="images/brochure_14.jpg" alt="Wedding painting artwork" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials"><div class="testimonials-inner">
+  <p class="section-label reveal">Kind Words</p>
+  <h2 class="section-title reveal reveal-d1">What Clients Say</h2>
+  <div class="section-divider reveal reveal-d2" style="margin:0 auto 28px"></div>
+  <div class="testimonial-cards">
+    <div class="testimonial-card reveal reveal-d2">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"I booked Saumya at the very last moment for my brother and bhabhi's wedding. She was incredibly punctual, arriving before time. The final painting was a surprise for our family, and everyone was in awe of how beautifully she captured the moment. Her work is truly commendable!"</p>
+      <div class="testimonial-author">Akshita</div><div class="testimonial-date">Married on 24/02/2025</div>
+      <div class="testimonial-ratings"><span>Quality: <em>Excellent</em></span><span>Responsiveness: <em>Excellent</em></span><span>Value: <em>Excellent</em></span></div>
+    </div>
+    <div class="testimonial-card reveal reveal-d3">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"Ms. Saumya did a live wedding painting for me. She is punctual, was on the venue with her supplies on time and made a beautiful painting. My guests loved it. The painting still hangs in my drawing room. I would surely recommend her services. She is very talented."</p>
+      <div class="testimonial-author">Yabaa</div><div class="testimonial-date">Married on 24/11/2024</div>
+      <div class="testimonial-ratings"><span>Professionalism: <em>Excellent</em></span><span>Flexibility: <em>Excellent</em></span><span>Value: <em>Excellent</em></span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-intro">
+      <p class="section-label reveal">Get In Touch</p>
+      <h2 class="section-title reveal reveal-d1">Book a Commission</h2>
+      <div class="section-divider reveal reveal-d2"></div>
+      <p class="section-desc reveal reveal-d2">Whether it's a portrait, a live event painting, or a custom artwork &mdash; fill out the form below and Saumya will get back to you within 24 hours.</p>
+    </div>
+    <form class="booking-form reveal reveal-d3" action="https://formsubmit.co/saumyartistics@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Booking Enquiry - Saumyartistics"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none">
+      <div class="form-group"><input type="text" name="full_name" class="form-input" placeholder=" " required><label class="form-label">Full Name *</label></div>
+      <div class="form-group"><input type="tel" name="phone" class="form-input" placeholder=" " required><label class="form-label">Phone Number *</label></div>
+      <div class="form-group"><input type="email" name="email" class="form-input" placeholder=" " required><label class="form-label">Email ID *</label></div>
+      <div class="form-group"><input type="tel" name="alt_phone" class="form-input" placeholder=" "><label class="form-label">Alternative Contact Number</label></div>
+      <div class="form-group"><input type="date" name="event_date" class="form-input" placeholder=" " required><label class="form-label">Date of Event *</label></div>
+      <div class="form-group"><input type="text" name="venue" class="form-input" placeholder=" " required><label class="form-label">Venue / Location of Event *</label></div>
+      <div class="form-group full-width"><textarea name="permanent_address" class="form-textarea form-input" placeholder=" " required rows="3"></textarea><label class="form-label">Permanent Address *</label></div>
+      <div class="form-group full-width"><textarea name="message" class="form-textarea form-input" placeholder=" " rows="3"></textarea><label class="form-label">Additional Message (optional)</label></div>
+      <p class="form-note">Your details will be sent directly to Saumya. We respect your privacy.</p>
+      <div class="form-submit-wrap"><button type="submit" class="form-submit">Send Enquiry</button></div>
+    </form>
+  </div>
+</section>
+
+<section class="section shop" id="shop">
+  <div class="shop-header"><div>
+    <p class="section-label reveal">Shop</p>
+    <h2 class="section-title reveal reveal-d1">Explore Artworks</h2>
+    <div class="section-divider reveal reveal-d2"></div>
+  </div>
+  <div class="shop-categories reveal reveal-d2">
+    <button class="filter-btn active" data-shop-filter="all">All</button><button class="filter-btn" data-shop-filter="portraits">Portraits</button><button class="filter-btn" data-shop-filter="craftwork">Craftwork</button><button class="filter-btn" data-shop-filter="other">Other Stuff</button>
+  </div></div>
+  <div class="shop-grid" id="shopGrid"></div>
+</section>
+
+<footer class="footer" id="footer"><div class="footer-inner">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-wrap">
+        <img src="images/LOGO.jpg" alt="Saumyartistics" class="footer-logo">
+        <span class="footer-brand-text">Saumyartistics</span>
+      </div>
+      <p class="footer-tagline">Handcrafted fine art, portraits, and live event painting by Saumya Asthana. Based in Whitefield, Bangalore.</p>
+      <div class="footer-social" style="margin-top:20px">
+        <a href="https://instagram.com/saumyartistics" aria-label="Instagram" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="tel:+919794818188" aria-label="Phone"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+        <a href="mailto:saumyartistics@gmail.com" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a href="https://wa.me/919794818188" aria-label="WhatsApp" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#about">About</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#wedding">Live Painting</a></li><li><a href="#shop">Shop</a></li><li><a href="#booking">Book Now</a></li></ul></div>
+    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#booking">Pencil Portraits</a></li><li><a href="#booking">Watercolor Art</a></li><li><a href="#booking">Oil Paintings</a></li><li><a href="#booking">Pet Portraits</a></li><li><a href="#wedding">Wedding Painting</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:saumyartistics@gmail.com">saumyartistics@gmail.com</a></li><li><a href="tel:+919794818188">+91 9794818188</a></li><li><a href="https://instagram.com/saumyartistics" target="_blank">@saumyartistics</a></li><li style="margin-top:4px;font-family:var(--font-sub);font-size:13px;color:rgba(255,255,255,.3)">Whitefield, Bangalore</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2025 Saumyartistics by Saumya Asthana. All rights reserved.</p>
+    <p class="footer-credit"><a href="downloads/quotation-template.html" download title="Download editable quotation template">Quotation Template</a> &nbsp;&middot;&nbsp; Crafted with love &amp; passion</p>
+  </div>
+</div></footer>
+
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('preloader').classList.add('done')},1400)});
+let ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);ticking=false});ticking=true}},{passive:true});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+function closeMobile(){hamburger.classList.remove('active');mobileMenu.classList.remove('open');document.body.style.overflow=''}
+const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+const galleryData=[
+  {title:'Child with Flower',category:'pencil',label:'Pencil Portrait',img:'artwork_01.jpg'},
+  {title:'Woman with Glasses',category:'pencil',label:'Pencil Portrait',img:'artwork_02.jpg'},
+  {title:'Couple Portrait',category:'pencil',label:'Pencil Portrait',img:'artwork_03.jpg'},
+  {title:'Distinguished Gentleman',category:'pencil',label:'Pencil Portrait',img:'artwork_04.jpg'},
+  {title:'Young Man Portrait',category:'pencil',label:'Pencil Portrait',img:'artwork_05.jpg'},
+  {title:'Siblings',category:'pencil',label:'Pencil Portrait',img:'artwork_06.jpg'},
+  {title:'Baby Joy',category:'pencil',label:'Pencil Portrait',img:'artwork_07.jpg'},
+  {title:'Woman with Dholak',category:'watercolor',label:'Watercolor',img:'artwork_08.jpg'},
+  {title:'Joyful Child with Flowers',category:'watercolor',label:'Watercolor',img:'artwork_09.jpg'},
+  {title:'Spiritual Scholar',category:'watercolor',label:'Watercolor',img:'artwork_10.jpg'},
+  {title:'Blessing',category:'watercolor',label:'Watercolor',img:'artwork_11.jpg'},
+  {title:'Girl in Blue',category:'watercolor',label:'Watercolor',img:'artwork_12.jpg'},
+  {title:'Baby with Bow',category:'oil',label:'Oil & Acrylic',img:'artwork_13.jpg'},
+  {title:'Saraswati',category:'oil',label:'Oil & Acrylic',img:'artwork_14.jpg'},
+  {title:'Eye Reflection',category:'oil',label:'Oil & Acrylic',img:'artwork_15.jpg'},
+  {title:'Galaxy Night Sky',category:'miniature',label:'Miniature',img:'artwork_16.jpg'},
+  {title:'Sunset Silhouette',category:'miniature',label:'Miniature',img:'artwork_17.jpg'},
+  {title:'Moonlit Night',category:'miniature',label:'Miniature',img:'artwork_18.jpg'},
+  {title:'Eye Study',category:'pencil',label:'Pencil Portrait',img:'artwork_19.jpg'},
+  {title:'Nivea Still Life',category:'oil',label:'Oil & Acrylic',img:'artwork_20.jpg'},
+  {title:'Mastiff Portrait',category:'pet',label:'Pet Portrait',img:'artwork_21.jpg'},
+  {title:'Labrador Puppy',category:'pet',label:'Pet Portrait',img:'artwork_22.jpg'},
+  {title:'Golden Retriever',category:'pet',label:'Pet Portrait',img:'artwork_23.jpg'},
+  {title:'Carlos',category:'pet',label:'Pet Portrait',img:'artwork_24.jpg'},
+  {title:'Eye Detail',category:'pencil',label:'Pencil Portrait',img:'artwork_25.jpg'},
+  {title:'Woman in Red Saree',category:'watercolor',label:'Watercolor',img:'artwork_26.jpg'},
+  {title:'Fashion Illustration',category:'pencil',label:'Pencil Portrait',img:'artwork_27.jpg'},
+];
+let currentFilter='all',currentLightboxIdx=0,filteredData=[];
+function renderGallery(filter='all'){
+  currentFilter=filter;
+  const grid=document.getElementById('galleryGrid');
+  filteredData=filter==='all'?galleryData:galleryData.filter(d=>d.category===filter);
+  grid.innerHTML=filteredData.map((item,i)=>`<div class="gallery-item" data-idx="${i}"><img src="images/${item.img}" alt="${item.title}" loading="lazy"><div class="gallery-overlay"><div><h4>${item.title}</h4><span>${item.label}</span></div></div></div>`).join('');
+  grid.querySelectorAll('.gallery-item').forEach(item=>{item.addEventListener('click',()=>openLightbox(parseInt(item.dataset.idx)))});
+}
+renderGallery();
+document.querySelectorAll('[data-filter]').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGallery(btn.dataset.filter)})});
+
+function openLightbox(idx){currentLightboxIdx=idx;const item=filteredData[idx];const lb=document.getElementById('lightbox');document.getElementById('lightboxImg').src='images/'+item.img;document.getElementById('lightboxImg').alt=item.title;document.getElementById('lightboxTitle').textContent=item.title;document.getElementById('lightboxCategory').textContent=item.label;lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
+function navLightbox(dir){currentLightboxIdx=(currentLightboxIdx+dir+filteredData.length)%filteredData.length;const item=filteredData[currentLightboxIdx];document.getElementById('lightboxImg').src='images/'+item.img;document.getElementById('lightboxImg').alt=item.title;document.getElementById('lightboxTitle').textContent=item.title;document.getElementById('lightboxCategory').textContent=item.label}
+document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
+document.getElementById('lightboxPrev').addEventListener('click',()=>navLightbox(-1));
+document.getElementById('lightboxNext').addEventListener('click',()=>navLightbox(1));
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox()});
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')navLightbox(-1);if(e.key==='ArrowRight')navLightbox(1)});
+
+const shopData=[
+  {title:'Custom Pencil Portrait',category:'portraits',price:'2,500',from:true,badge:'Bestseller',img:'artwork_01.jpg'},
+  {title:'Watercolor Portrait',category:'portraits',price:'3,500',from:true,badge:'',img:'artwork_09.jpg'},
+  {title:'Pet Portrait (Pencil)',category:'portraits',price:'2,000',from:true,badge:'',img:'artwork_22.jpg'},
+  {title:'Couple Portrait',category:'portraits',price:'4,000',from:true,badge:'',img:'artwork_03.jpg'},
+  {title:'Oil on Canvas (Custom)',category:'portraits',price:'8,000',from:true,badge:'Premium',img:'artwork_14.jpg'},
+  {title:'Miniature Watercolor Card',category:'craftwork',price:'500',from:false,badge:'New',img:'artwork_16.jpg'},
+  {title:'Miniature Sunset Card',category:'craftwork',price:'500',from:false,badge:'',img:'artwork_17.jpg'},
+  {title:'Miniature Night Sky Card',category:'craftwork',price:'500',from:false,badge:'',img:'artwork_18.jpg'},
+  {title:'Fashion Illustration',category:'other',price:'3,000',from:true,badge:'',img:'artwork_27.jpg'},
+  {title:'Eye Study Artwork',category:'other',price:'1,500',from:true,badge:'',img:'artwork_15.jpg'},
+  {title:'Still Life Painting',category:'other',price:'2,000',from:true,badge:'',img:'artwork_20.jpg'},
+  {title:'Spiritual / Religious Art',category:'other',price:'5,000',from:true,badge:'',img:'artwork_10.jpg'},
+];
+function renderShop(filter='all'){
+  const grid=document.getElementById('shopGrid');
+  const filtered=filter==='all'?shopData:shopData.filter(d=>d.category===filter);
+  grid.innerHTML=filtered.map((item,i)=>`<div class="shop-card"><div class="shop-card-image"><img src="images/${item.img}" alt="${item.title}" loading="lazy">${item.badge?`<div class="shop-card-badge">${item.badge}</div>`:''}</div><div class="shop-card-body"><div class="shop-card-category">${item.category}</div><h3 class="shop-card-title">${item.title}</h3><div class="shop-card-price">${item.from?'<span class="price-from">Starting from </span>':''}&#8377;${item.price}</div><a href="#booking" class="btn-enquire">Enquire Now</a></div></div>`).join('');
+}
+renderShop();
+document.querySelectorAll('[data-shop-filter]').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('[data-shop-filter]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderShop(btn.dataset.shopFilter)})});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-72,behavior:'smooth'})})});
+const di=document.querySelector('input[type="date"]');if(di){di.addEventListener('focus',function(){const l=this.parentElement.querySelector('.form-label');if(l){l.style.top='-4px';l.style.fontSize='11px';l.style.color='var(--royal)';l.style.letterSpacing='.1em';l.style.textTransform='uppercase'}})}
+</script>
+</body>
+</html>
