@@ -946,34 +946,7 @@ document.getElementById('packageSelect').addEventListener('change',function(){
   this.classList.add('has-value');
 });
 
-/* Booking form — email via FormSubmit + WhatsApp notification via CallMeBot */
-document.getElementById('bookingForm').addEventListener('submit',function(){
-  const f=this;
-  const service=f.service_type.value;
-  const name=f.full_name.value.trim();
-  const phone=f.phone.value.trim();
-  const email=f.email.value.trim();
-  const date=f.event_date.value;
-  const venue=f.venue.value.trim();
-  const pkg=f.package.value;
-  const msg=f.message.value.trim();
-  /* Build WhatsApp notification text */
-  let text='📩 New Enquiry — Saumyartistics\n\n';
-  text+='Service: '+service+'\n';
-  text+='Name: '+name+'\n';
-  text+='Phone: '+phone+'\n';
-  text+='Email: '+email+'\n';
-  if(date) text+='Event Date: '+date+'\n';
-  if(venue) text+='Venue: '+venue+'\n';
-  if(pkg) text+='Package: '+pkg+'\n';
-  if(msg) text+='Message: '+msg+'\n';
-  /* CallMeBot WhatsApp API — Replace YOUR_API_KEY with actual key */
-  /* Setup: Saumya sends "I allow callmebot to send me messages" to +34 644 71 92 16 on WhatsApp */
-  const apiKey='YOUR_API_KEY';
-  if(apiKey!=='YOUR_API_KEY'){
-    fetch('https://api.callmebot.com/whatsapp.php?phone=919794818188&text='+encodeURIComponent(text)+'&apikey='+apiKey,{mode:'no-cors'}).catch(function(){});
-  }
-});
+/* Booking form — email via FormSubmit.co to saumyartistics@gmail.com */
 
 /* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
