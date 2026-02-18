@@ -682,7 +682,12 @@ img{image-rendering:auto}
       <div class="section-divider reveal reveal-d2"></div>
       <p class="section-desc reveal reveal-d2">Whether it's a live painting, portrait, or custom artwork &mdash; fill out the form below and Saumya will get back to you within 24 hours.</p>
     </div>
-    <form class="booking-form reveal reveal-d3" id="bookingForm">
+    <form class="booking-form reveal reveal-d3" id="bookingForm" action="https://formsubmit.co/saumyartistics@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Booking Enquiry - Saumyartistics">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_next" value="https://saumyartistics-artstudio.github.io/Saumyartistics/#booking">
 
       <div class="form-group full-width">
         <select name="service_type" class="form-select" id="serviceSelect" required>
@@ -941,9 +946,8 @@ document.getElementById('packageSelect').addEventListener('change',function(){
   this.classList.add('has-value');
 });
 
-/* WhatsApp form submission */
-document.getElementById('bookingForm').addEventListener('submit',function(e){
-  e.preventDefault();
+/* Booking form — email via FormSubmit + WhatsApp notification via CallMeBot */
+document.getElementById('bookingForm').addEventListener('submit',function(){
   const f=this;
   const service=f.service_type.value;
   const name=f.full_name.value.trim();
@@ -953,17 +957,22 @@ document.getElementById('bookingForm').addEventListener('submit',function(e){
   const venue=f.venue.value.trim();
   const pkg=f.package.value;
   const msg=f.message.value.trim();
-  let text='*New Enquiry — Saumyartistics*\n\n';
-  text+='*Service:* '+service+'\n';
-  text+='*Name:* '+name+'\n';
-  text+='*Phone:* '+phone+'\n';
-  text+='*Email:* '+email+'\n';
-  if(date) text+='*Event Date:* '+date+'\n';
-  if(venue) text+='*Venue:* '+venue+'\n';
-  if(pkg) text+='*Package:* '+pkg+'\n';
-  if(msg) text+='*Message:* '+msg+'\n';
-  const url='https://wa.me/919794818188?text='+encodeURIComponent(text);
-  window.open(url,'_blank');
+  /* Build WhatsApp notification text */
+  let text='📩 New Enquiry — Saumyartistics\n\n';
+  text+='Service: '+service+'\n';
+  text+='Name: '+name+'\n';
+  text+='Phone: '+phone+'\n';
+  text+='Email: '+email+'\n';
+  if(date) text+='Event Date: '+date+'\n';
+  if(venue) text+='Venue: '+venue+'\n';
+  if(pkg) text+='Package: '+pkg+'\n';
+  if(msg) text+='Message: '+msg+'\n';
+  /* CallMeBot WhatsApp API — Replace YOUR_API_KEY with actual key */
+  /* Setup: Saumya sends "I allow callmebot to send me messages" to +34 644 71 92 16 on WhatsApp */
+  const apiKey='YOUR_API_KEY';
+  if(apiKey!=='YOUR_API_KEY'){
+    fetch('https://api.callmebot.com/whatsapp.php?phone=919794818188&text='+encodeURIComponent(text)+'&apikey='+apiKey,{mode:'no-cors'}).catch(function(){});
+  }
 });
 
 /* Smooth scroll */
