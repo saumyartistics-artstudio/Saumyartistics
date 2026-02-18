@@ -122,8 +122,13 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .btn-outline{font-family:var(--font-sub);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:15px 36px;border:1px solid rgba(212,114,140,.4);background:transparent;color:var(--white);text-decoration:none;border-radius:4px;transition:border-color .3s,color .3s,background .3s,transform .2s;cursor:pointer}
 .btn-outline:hover{border-color:var(--rose);color:var(--white);background:var(--rose);transform:translateY(-2px)}
 .hero-social{display:flex;gap:16px;justify-content:center;margin-top:32px;opacity:0;transform:translateY(16px);animation:hReveal .7s 1.9s var(--ease) forwards}
-.hero-social a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(197,165,90,.3);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s,transform .3s;text-decoration:none}
-.hero-social a:hover{border-color:var(--gold-light);background:rgba(197,165,90,.12);transform:translateY(-3px)}
+.hero-social a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(197,165,90,.3);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s,transform .3s;text-decoration:none;animation:socialPulse 2.5s ease-in-out infinite}
+.hero-social a:nth-child(1){animation-delay:0s}
+.hero-social a:nth-child(2){animation-delay:.4s}
+.hero-social a:nth-child(3){animation-delay:.8s}
+.hero-social a:nth-child(4){animation-delay:1.2s}
+@keyframes socialPulse{0%,100%{box-shadow:0 0 0 0 rgba(197,165,90,0)}50%{box-shadow:0 0 12px 3px rgba(197,165,90,.25)}}
+.hero-social a:hover{border-color:var(--gold-light);background:rgba(197,165,90,.12);transform:translateY(-3px);animation:none;box-shadow:0 0 16px 4px rgba(197,165,90,.3)}
 .hero-social a svg{width:18px;height:18px;fill:rgba(255,255,255,.6);transition:fill .3s}
 .hero-social a:hover svg{fill:var(--gold-light)}
 .hero-social-label{font-family:var(--font-sub);font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase;margin-top:20px;opacity:0;transform:translateY(12px);animation:hReveal .6s 2s var(--ease) forwards}
