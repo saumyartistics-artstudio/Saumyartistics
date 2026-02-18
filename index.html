@@ -25,8 +25,8 @@
   --dark:#2A1B3D;
   --off-white:#FAF7FC;
   --white:#FFFFFF;
-  --gray:#5C4D6E;
-  --silver:#7A6B8A;
+  --gray:#3A2D4A;
+  --silver:#4E3F62;
   --pearl:#D4C8DF;
   --light:#EDE7F3;
   --font-brand:'Marcellus',Georgia,serif;
@@ -59,7 +59,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .nav-brand-text{font-family:var(--font-brand);font-size:22px;color:var(--white);letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:color .3s}
 .nav-brand-tagline{font-family:var(--font-sub);font-size:11px;color:var(--gold-light);letter-spacing:.2em;text-transform:uppercase;opacity:.9}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-link{font-family:var(--font-sub);font-size:16px;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;letter-spacing:.06em;position:relative;padding:4px 0;transition:color .3s}
+.nav-link{font-family:var(--font-sub);font-size:16px;font-weight:600;color:rgba(255,255,255,.95);text-decoration:none;letter-spacing:.06em;position:relative;padding:4px 0;transition:color .3s}
 .nav-link::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--rose);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
 .nav-link:hover{color:var(--white)}
 .nav-link:hover::after{transform:scaleX(1);transform-origin:left}
@@ -129,9 +129,9 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .hero-social a:nth-child(4){animation-delay:1.2s}
 @keyframes socialPulse{0%,100%{box-shadow:0 0 0 0 rgba(197,165,90,0)}50%{box-shadow:0 0 12px 3px rgba(197,165,90,.25)}}
 .hero-social a:hover{border-color:var(--gold-light);background:rgba(197,165,90,.12);transform:translateY(-3px);animation:none;box-shadow:0 0 16px 4px rgba(197,165,90,.3)}
-.hero-social a svg{width:18px;height:18px;fill:rgba(255,255,255,.6);transition:fill .3s}
+.hero-social a svg{width:18px;height:18px;fill:rgba(255,255,255,.9);transition:fill .3s}
 .hero-social a:hover svg{fill:var(--gold-light)}
-.hero-social-label{font-family:var(--font-sub);font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase;margin-top:20px;opacity:0;transform:translateY(12px);animation:hReveal .6s 2s var(--ease) forwards}
+.hero-social-label{font-family:var(--font-sub);font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.25em;text-transform:uppercase;margin-top:20px;opacity:0;transform:translateY(12px);animation:hReveal .6s 2s var(--ease) forwards}
 
 /* SECTIONS */
 .section{padding:110px 40px;position:relative;overflow:hidden}
@@ -141,7 +141,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--white);over
 .section-title-light{color:var(--white)}
 .section-divider{width:50px;height:2px;background:linear-gradient(90deg,var(--purple),var(--gold));margin-bottom:28px}
 .section-desc{font-family:var(--font-sub);font-size:clamp(15px,1.8vw,19px);color:var(--gray);max-width:540px;line-height:1.7;font-weight:300}
-.section-desc-light{color:rgba(255,255,255,.5)}
+.section-desc-light{color:rgba(255,255,255,.85)}
 img{image-rendering:auto}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -197,7 +197,7 @@ img{image-rendering:auto}
 .lightbox-caption span{font-family:var(--font-sub);font-size:13px;color:var(--lavender);letter-spacing:.1em}
 .lightbox-close{position:fixed;top:20px;right:28px;background:none;border:none;color:var(--white);font-size:32px;font-family:var(--font-sub);font-weight:300;z-index:10001;line-height:1;padding:8px;transition:color .3s;cursor:pointer}
 .lightbox-close:hover{color:var(--lavender)}
-.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.6);font-size:44px;z-index:10001;padding:16px;font-family:var(--font-sub);font-weight:300;transition:color .3s;cursor:pointer}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.9);font-size:44px;z-index:10001;padding:16px;font-family:var(--font-sub);font-weight:300;transition:color .3s;cursor:pointer}
 .lightbox-nav:hover{color:var(--lavender)}
 .lightbox-prev{left:12px}.lightbox-next{right:12px}
 
@@ -323,19 +323,19 @@ img{image-rendering:auto}
 .footer-brand-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .footer-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid rgba(197,165,90,.35)}
 .footer-brand-text{font-family:var(--font-brand);font-size:22px;color:var(--white);letter-spacing:.2em;text-transform:uppercase;font-weight:400}
-.footer-tagline{font-family:var(--font-sub);font-size:15px;color:rgba(255,255,255,.5);line-height:1.7;max-width:280px}
+.footer-tagline{font-family:var(--font-sub);font-size:15px;color:rgba(255,255,255,.8);line-height:1.7;max-width:280px}
 .footer-col-title{font-family:var(--font-sub);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-family:var(--font-sub);font-size:15px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .3s;letter-spacing:.02em}
+.footer-links a{font-family:var(--font-sub);font-size:15px;color:rgba(255,255,255,.85);text-decoration:none;transition:color .3s;letter-spacing:.02em}
 .footer-links a:hover{color:var(--white)}
 .footer-social{display:flex;gap:14px}
 .footer-social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s;text-decoration:none;border-radius:4px}
 .footer-social a:hover{border-color:var(--purple);background:rgba(142,68,173,.15)}
-.footer-social a svg{fill:rgba(255,255,255,.5);transition:fill .3s}
+.footer-social a svg{fill:rgba(255,255,255,.85);transition:fill .3s}
 .footer-social a:hover svg{fill:var(--lavender)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.footer-copy{font-family:var(--font-sub);font-size:13px;color:rgba(255,255,255,.4);letter-spacing:.04em}
-.footer-credit{font-family:var(--font-sub);font-size:13px;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.footer-copy{font-family:var(--font-sub);font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.04em}
+.footer-credit{font-family:var(--font-sub);font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.04em}
 @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-top{grid-template-columns:1fr}.footer{padding:52px 24px 28px}}
 </style>
@@ -771,7 +771,7 @@ img{image-rendering:auto}
         <li><a href="mailto:saumyartistics@gmail.com">saumyartistics@gmail.com</a></li>
         <li><a href="tel:+919794818188">+91 9794818188</a></li>
         <li><a href="https://instagram.com/saumyartistics" target="_blank">@saumyartistics</a></li>
-        <li style="margin-top:4px;font-family:var(--font-sub);font-size:14px;color:rgba(255,255,255,.5)">Bangalore, India &middot; Available Pan-India</li>
+        <li style="margin-top:4px;font-family:var(--font-sub);font-size:14px;color:rgba(255,255,255,.8)">Bangalore, India &middot; Available Pan-India</li>
       </ul>
     </div>
   </div>
