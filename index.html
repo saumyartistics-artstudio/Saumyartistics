@@ -391,8 +391,7 @@ img{image-rendering:auto}
 /* Floating Award Badge */
 .award-float{position:fixed;bottom:24px;right:24px;z-index:900;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .award-float.visible{opacity:1;transform:translateY(0);pointer-events:auto}
-.award-float a{display:block;background:linear-gradient(135deg,#1C1028,var(--plum));border:1px solid var(--gold);border-radius:12px;padding:10px;box-shadow:0 8px 32px rgba(0,0,0,.4);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.award-float a:hover{transform:scale(1.05);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.award-float>div{display:block;background:linear-gradient(135deg,#1C1028,var(--plum));border:1px solid var(--gold);border-radius:12px;padding:10px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
 .award-float img{width:60px;height:60px;border-radius:6px;display:block}
 .award-float-label{font-family:var(--font-sub);font-size:9px;color:var(--gold-light);text-align:center;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;line-height:1.2}
 @media(max-width:600px){.award-float{bottom:16px;right:16px}.award-float img{width:48px;height:48px}.award-float-label{font-size:8px}}
@@ -467,9 +466,7 @@ img{image-rendering:auto}
   <!-- AWARD BANNER -->
   <div class="award-banner" id="awardBanner">
     <div class="award-banner-badge">
-      <a target="_blank" href="https://www.weddingwire.in/wedding-entertainment/saumyartistics--e475559" rel="nofollow">
-        <img src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg" alt="WeddingWire 2026 Award" width="44" height="44">
-      </a>
+      <img src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg" alt="WeddingWire 2026 Award" width="44" height="44">
     </div>
     <div class="award-banner-track">
       <span>&#10022; <strong>Winner</strong> &mdash; WeddingWire India 2026 Wedding Awards</span>
@@ -1160,10 +1157,10 @@ if(di){
 </script>
 <!-- Floating Award Badge -->
 <div class="award-float" id="awardFloat">
-  <a target="_blank" href="https://www.weddingwire.in/wedding-entertainment/saumyartistics--e475559" rel="nofollow" title="Saumyartistics, 2026 Wedding Awards winner">
+  <div>
     <img width="60" height="60" alt="WeddingWire 2026 Award" src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg">
     <div class="award-float-label">2026 Winner</div>
-  </a>
+  </div>
 </div>
 <script>
 (function(){
