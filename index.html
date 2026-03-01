@@ -377,7 +377,7 @@ img{image-rendering:auto}
 @media(max-width:600px){.footer-top{grid-template-columns:1fr}.footer{padding:52px 24px 28px}}
 
 /* Award Banner Strip */
-.award-banner{background:linear-gradient(90deg,#1C1028,var(--plum),#1C1028);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:16px;position:relative;overflow:hidden}
+.award-banner{background:linear-gradient(90deg,rgba(28,16,40,.85),rgba(61,18,89,.9),rgba(28,16,40,.85));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:16px;position:absolute;bottom:0;left:0;right:0;z-index:10;overflow:hidden}
 .award-banner::before,.award-banner::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
 .award-banner::before{left:0;background:linear-gradient(90deg,#1C1028,transparent)}
 .award-banner::after{right:0;background:linear-gradient(270deg,#1C1028,transparent)}
@@ -386,7 +386,7 @@ img{image-rendering:auto}
 .award-banner-text{font-family:var(--font-sub);font-size:15px;color:var(--gold-light);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;z-index:1}
 .award-banner-text strong{color:var(--gold);font-weight:600}
 .award-banner-star{color:var(--gold);font-size:12px;letter-spacing:4px;z-index:1}
-@media(max-width:600px){.award-banner{padding:12px 16px;gap:12px}.award-banner-text{font-size:12px;letter-spacing:.05em}.award-banner-badge img{width:42px;height:42px}}
+@media(max-width:600px){.award-banner{padding:10px 12px;gap:8px}.award-banner-text{font-size:11px;letter-spacing:.04em}.award-banner-badge img{width:36px;height:36px}.award-banner-star{font-size:10px;letter-spacing:2px}}
 
 /* Floating Award Badge */
 .award-float{position:fixed;bottom:24px;right:24px;z-index:900;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
@@ -464,20 +464,19 @@ img{image-rendering:auto}
     </div>
     <p class="hero-social-label">Click Here</p>
   </div>
+  <!-- AWARD BANNER -->
+  <div class="award-banner" id="awardBanner">
+    <span class="award-banner-star">&#10022; &#10022; &#10022;</span>
+    <div class="award-banner-badge">
+      <img src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg" alt="WeddingWire 2026 Award" width="52" height="52">
+    </div>
+    <span class="award-banner-text"><strong>Winner</strong> &mdash; WeddingWire India 2026 Wedding Awards</span>
+    <div class="award-banner-badge">
+      <img src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg" alt="WeddingWire 2026 Award" width="52" height="52">
+    </div>
+    <span class="award-banner-star">&#10022; &#10022; &#10022;</span>
+  </div>
 </section>
-
-<!-- AWARD BANNER -->
-<div class="award-banner" id="awardBanner">
-  <span class="award-banner-star">&#10022; &#10022; &#10022;</span>
-  <div class="award-banner-badge">
-    <img src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg" alt="WeddingWire 2026 Award" width="52" height="52">
-  </div>
-  <span class="award-banner-text"><strong>Winner</strong> &mdash; WeddingWire India 2026 Wedding Awards</span>
-  <div class="award-banner-badge">
-    <img src="https://cdn1.weddingwire.in/img/badges/2026/badge-weddingawards_en_IN.jpg" alt="WeddingWire 2026 Award" width="52" height="52">
-  </div>
-  <span class="award-banner-star">&#10022; &#10022; &#10022;</span>
-</div>
 
 <!-- LIVE WEDDING PAINTING -->
 <section class="section wedding" id="wedding">
